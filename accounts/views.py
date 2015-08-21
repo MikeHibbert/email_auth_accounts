@@ -32,7 +32,7 @@ def register(request, register_form=UserRegistrationForm):
 
 
 
-def login(request):
+def login(request, success_url=None):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
@@ -42,7 +42,10 @@ def login(request):
             if user is not None:
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
-                return redirect(reverse('profile'))
+                if success_url:
+                    return redirect(success_url)
+                else:
+                    return redirect(reverse('profile'))
             else:
                 form.add_error(None, "Your email or password was not recognised")
 
