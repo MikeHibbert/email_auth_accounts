@@ -30,6 +30,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
     install_requires = [
-        'django_forms_bootstrap',
+        'django-bootstrap-form',
     ],
 )
