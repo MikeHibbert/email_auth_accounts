@@ -20,6 +20,7 @@ Quick start
 2. Add this to your settings.py::
 
    AUTH_USER_MODEL = 'accounts.User'
+   
    AUTHENTICATION_BACKENDS = (
    	'django.contrib.auth.backends.ModelBackend',
         'accounts.backends.EmailAuth',
