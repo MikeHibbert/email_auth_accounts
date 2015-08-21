@@ -43,7 +43,7 @@ def login(request, success_url=None):
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
                 if success_url:
-                    return redirect(success_url)
+                    return redirect(reverse(success_url))
                 else:
                     return redirect(reverse('profile'))
             else:
