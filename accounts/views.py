@@ -6,9 +6,9 @@ from django.template.context_processors import csrf
 from accounts.forms import UserRegistrationForm, UserLoginForm
 
 
-def register(request):
+def register(request, register_form=UserRegistrationForm):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = register_form(request.POST)
         if form.is_valid():
             form.save()
 
@@ -23,7 +23,7 @@ def register(request):
                 messages.error(request, "unable to log you in at this time!")
 
     else:
-        form = UserRegistrationForm()
+        form = register_form()
 
     args = {'form':form}
     args.update(csrf(request))
