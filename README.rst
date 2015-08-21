@@ -23,7 +23,7 @@ Quick start
    
    AUTHENTICATION_BACKENDS = (
    	'django.contrib.auth.backends.ModelBackend',
-        'accounts.backends.EmailAuth',
+   	'accounts.backends.EmailAuth',
    )
 
 2. Include the polls URLconf in your project urls.py like this::
